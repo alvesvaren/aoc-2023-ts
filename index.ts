@@ -41,7 +41,7 @@ const getRunFuncs = async (day: number) => {
 
 const runSolution = async (
   day: number,
-  input?: string
+  input?: string,
 ): Promise<[unknown, unknown]> => {
   const { run, part1func, part2func } = await getRunFuncs(day);
   if (!input) {
@@ -88,7 +88,7 @@ const getTests = async (day: number) => {
 
   return [tests?.part1, tests?.part2] as [
     TestData[] | undefined,
-    TestData[] | undefined
+    TestData[] | undefined,
   ];
 };
 
@@ -117,8 +117,8 @@ program
           const passed = solution === test.out;
           console.log(
             chalk[passed ? 'greenBright' : 'redBright'](
-              `  ${solution} ${passed ? '==' : '!='} ${test.out}`
-            )
+              `  ${solution} ${passed ? '==' : '!='} ${test.out}`,
+            ),
           );
 
           if (!passed) {
@@ -139,8 +139,8 @@ program
           const { correct, message } = await submit(parseInt(day), part, part1);
           console.log(
             chalk[correct ? 'greenBright' : 'redBright'](
-              message?.replaceAll('  ', '\n')
-            )
+              message?.replaceAll('  ', '\n'),
+            ),
           );
         }
       });
